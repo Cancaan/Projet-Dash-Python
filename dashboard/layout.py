@@ -15,9 +15,9 @@ def sdg_map(df):
     return fig
 
 def correlation_poverty_hunger(df):
-    selected_columns = ['country', 'year', 'No_Poverty', 'No_Hunger']
+    selected_columns = ['country', 'year', 'No_Poverty', 'Zero_Hunger']
     data_subset = df[selected_columns]
-    fig = px.scatter(data_subset, x='No_Poverty', y='No_Hunger', 
+    fig = px.scatter(data_subset, x='No_Poverty', y='Zero_Hunger', 
                      text='country', title='Relation Beetween Poverty and Hunger')
     fig.update_layout(width=1280, height=720, title_x=0.5)
     return fig
