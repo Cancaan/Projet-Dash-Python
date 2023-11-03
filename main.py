@@ -9,4 +9,3 @@ if __name__ == "__main__":
     app = app(df)
 
     app.run_server(debug=True)
-print(df['country'].unique())
