@@ -4,13 +4,21 @@ import plotly.express as px
 
 def sdg_map(df):
     fig = px.choropleth(df, locations="country_code",
-                                color="sdg_index_score",
-                                hover_name="country",
-                                projection='natural earth',
-                                animation_frame="year",
-                                title='Sustainable Development Goal Score Per Country',
-                                color_continuous_scale=px.colors.sequential.Plasma)
+                            color="sdg_index_score",
+                            hover_name="country",
+                            projection='natural earth',
+                            animation_frame="year",
+                            title='Sustainable Development Goal Score Per Country',
+                            color_continuous_scale=px.colors.sequential.Plasma)
 
+    fig.update_layout(width=1280, height=720, title_x=0.5)
+    return fig
+
+def correlation_poverty_hunger(df):
+    selected_columns = ['country', 'year', 'No_Poverty', 'No_Hunger']
+    data_subset = df[selected_columns]
+    fig = px.scatter(data_subset, x='No_Poverty', y='No_Hunger', 
+                     text='country', title='Relation Beetween Poverty and Hunger')
     fig.update_layout(width=1280, height=720, title_x=0.5)
     return fig
 
@@ -41,14 +49,11 @@ def layout(df):
                             'xaxis': {'title': 'Year'},
                             'yaxis': {'title': 'Score'},}
             })
-        ])
+        ]),
+        html.Div([
+            dcc.Graph(figure=correlation_poverty_hunger(df)),
+            html.Hr()
+        ]),
     ])
 
 
-def correlation_poverty_hunger(df):
-    selected_columns = ['country', 'year', 'No_Poverty', 'No_Hunger']
-    data_subset = df[selected_columns]
-    fig = px.scatter(data_subset, x='No_Poverty', y='No_Hunger', 
-                     text='country', title='Relation Beetween Poverty and Hunger')
-    fig.update_layout(width=1280, height=720, title_x=0.5)
-    return fig
