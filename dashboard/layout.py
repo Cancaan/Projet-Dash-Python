@@ -17,11 +17,16 @@ def sdg_map(df):
 def correlation_poverty_hunger(df):
     selected_columns = ['country', 'year', 'No_Poverty', 'Zero_Hunger']
     data_subset = df[selected_columns]
+    #ajout d'une colonne temporaire pour la comparaison
+    data_subset['Comparison'] = data_subset.apply(lambda row: 'More Poverty than Hunger' 
+                                                  if row['Zero_Hunger'] > row['No_Poverty'] 
+                                                  else 'More Hunger than Poverty', 
+                                                  axis=1)
     fig = px.scatter(data_subset, 
-                     x='No_Poverty', y='Zero_Hunger',
-                     color='country', 
+                     x='No_Poverty', y='Zero_Hunger', 
                      text='country', 
                      title='Relation Beetween Poverty and Hunger',
+                     color='Comparison', #couleur en fonction du résultat de la comparaison
                      animation_frame='year')
     fig.update_layout(width=1280, height=720, title_x=0.5)
     return fig
