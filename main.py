@@ -4,7 +4,7 @@ from dash.dependencies import Input, Output, State
 from dash.exceptions import PreventUpdate
 
 if __name__ == "__main__":
-    df = get_data("sdg_index_2000-2022.csv")
+    df = get_data("Sustainable_Development_Data.csv")
     # print(df.to_string())
     app = app(df)
 
