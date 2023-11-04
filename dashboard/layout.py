@@ -57,9 +57,6 @@ def layout(df):
             html.Hr()
         ]),
 
-
-
-
         html.Div([
             dcc.Dropdown(
                 id='susdev-dropdown',
@@ -80,8 +77,8 @@ def layout(df):
                             'xaxis': {'title': 'Year'},
                             'yaxis': {'title': 'Score'},}
             })
-        ]),
 
+        ]),
 
 
         html.Div([
@@ -89,10 +86,14 @@ def layout(df):
             html.Hr()
         ]),
 
+
         html.Div([
+
             dcc.Dropdown(
                 id='goal-dropdown',
-                options=[{'label': column, 'value': column} for column in df[included_columns] if column in included_columns],
+                #pour dire que dans mon menu déroulant, il y aura les éléments de la liste included_columns
+                options=[{'label': column, 'value': column} 
+                         for column in included_columns],
                 value=included_columns[0]
             ),
 
@@ -107,14 +108,9 @@ def layout(df):
                          #pour que le slider affiche l'année en entier au lieu de 2k...
             ),
 
-
             dcc.Graph(id='facet-graph')
 
-
-   
         ])
-
-
 
     ])
 
