@@ -1,7 +1,6 @@
 from dash import dcc
 from dash import html
 import plotly.express as px
-import pandas as pd
 
 def sdg_map(df):
     fig = px.choropleth(df, locations="country_code",
@@ -33,8 +32,6 @@ def correlation_poverty_hunger(df):
                      animation_frame='year')
     fig.update_layout(width=1280, height=720, title_x=0.5)
     return fig
-
-
     
 
 #définition en amont d'une liste comprenant les colonnes que l'on voudra avoir dans le menu déroulant du 4ème graphique
@@ -45,8 +42,6 @@ included_columns = ['sdg_index_score','Zero_Hunger', 'Good_Health&Wellbeing', 'Q
                     'Responsible_Consumption&Production', 'Climate_Action', 
                     'Life_Below_Water', 'Life_on_Land', 'Peace_Justice&Strong_Institutions', 
                     'Partnerships']
-
-
 
 
 def layout(df):
