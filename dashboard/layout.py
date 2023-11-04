@@ -17,6 +17,8 @@ def sdg_map(df):
 def correlation_poverty_hunger(df):
     selected_columns = ['country', 'year', 'No_Poverty', 'Zero_Hunger']
     data_subset = df[selected_columns]
+    #ajout d'une condition pour ne pas prendre en compte les données erronées
+    data_subset = df[(df['No_Poverty'] != 0)][selected_columns]
     #ajout d'une colonne temporaire pour la comparaison
     data_subset['Comparison'] = data_subset.apply(lambda row: 'More Poverty than Hunger' 
                                                   if row['Zero_Hunger'] > row['No_Poverty'] 
