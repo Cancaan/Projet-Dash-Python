@@ -34,6 +34,20 @@ def correlation_poverty_hunger(df):
     return fig
 
 
+    
+
+#définition en amont d'une liste comprenant les colonnes que l'on voudra avoir dans le menu déroulant du 4ème graphique
+included_columns = ['sdg_index_score','Zero_Hunger', 'Good_Health&Wellbeing', 'Quality_Education', 
+                    'Gender_Equality', 'Clean_Water&Sanitation', 'Affordable&Clean_Energy', 
+                    'Decent_Work&Economic_Growth', 'Industry_Innovation&Infrastructure', 
+                    'Reduced_Inequalities', 'Sustainable_Cities&Communities', 
+                    'Responsible_Consumption&Production', 'Climate_Action', 
+                    'Life_Below_Water', 'Life_on_Land', 'Peace_Justice&Strong_Institutions', 
+                    'Partnerships']
+
+
+
+
 def layout(df):
     return  html.Div([
         html.H1("Sustainable Development Dashboard"),
@@ -41,6 +55,10 @@ def layout(df):
             dcc.Graph(figure=sdg_map(df)),
             html.Hr()
         ]),
+
+
+
+
         html.Div([
             dcc.Dropdown(
                 id='susdev-dropdown',
@@ -61,10 +79,25 @@ def layout(df):
                             'yaxis': {'title': 'Score'},}
             })
         ]),
+
+
+
         html.Div([
             dcc.Graph(figure=correlation_poverty_hunger(df)),
             html.Hr()
         ]),
+
+        html.Div([
+            dcc.Dropdown(
+                id='goal-dropdown',
+                options=[{'label': column, 'value': column} for column in df.columns if column in included_columns],
+                value=[{'label': column, 'value': column} for column in df.columns if column in included_columns][0]['value']
+            )
+           
+        ])
+
+
+
     ])
 
 
