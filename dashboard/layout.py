@@ -108,19 +108,10 @@ def layout(df):
             ),
 
 
-            dcc.Graph(id='scatter-plot',
-                    figure={
-                        'data': [{ 'x': df[df[included_columns[0]] == "sdg_index_score"]['sdg_index_score'],
-                                  'y': df[df[included_columns[0]] == "sdg_index_score"]['sdg_index_score'], 
-                                  'mode': 'markers', #mode de tracage par défaut pour créer un nuage de points
-                                  'name': 'Goal per Continent'},
-                                ],
-                        'layout': {
-                            'title': f'sdg_index_score per Continent',
-                            'xaxis': {'title': 'Year'},
-                            'yaxis': {'title': 'Score'},}
-            })
-           
+            dcc.Graph(id='facet-graph')
+
+
+   
         ])
 
 
