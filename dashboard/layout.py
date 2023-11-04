@@ -1,6 +1,7 @@
 from dash import dcc
 from dash import html
 import plotly.express as px
+import pandas as pd
 
 def sdg_map(df):
     fig = px.choropleth(df, locations="country_code",
@@ -69,9 +70,10 @@ def layout(df):
             ),
             dcc.Graph(id='bar-chart',
                     figure={
-                        'data': [{'x': df[df['country'] == "Afghanistan"]
-                                  ['year'], 'y': df[df['country'] == "Afghanistan"]
-                                  ['sdg_index_score'], 'type': 'bar', 'name': 'Index score'},
+                        'data': [{'x': df[df['country'] == "Afghanistan"]['year'], 
+                                  'y': df[df['country'] == "Afghanistan"]['sdg_index_score'], 
+                                  'type': 'bar', 
+                                  'name': 'Index score'},
                                 ],
                         'layout': {
                             'title': f'Index score of Afghanistan',
@@ -90,9 +92,34 @@ def layout(df):
         html.Div([
             dcc.Dropdown(
                 id='goal-dropdown',
-                options=[{'label': column, 'value': column} for column in df.columns if column in included_columns],
-                value=[{'label': column, 'value': column} for column in df.columns if column in included_columns][0]['value']
-            )
+                options=[{'label': column, 'value': column} for column in df[included_columns] if column in included_columns],
+                value=included_columns[0]
+            ),
+
+            dcc.Slider(
+                id = 'year-slider',
+                min = df['year'].min(),
+                max = df['year'].max(),
+                step = 1,  #incrément d'une année
+                value = df['year'].min(),  #année par défaut
+                marks = {str(year): str(year) 
+                         for year in range(df['year'].min(), df['year'].max() + 1)} 
+                         #pour que le slider affiche l'année en entier au lieu de 2k...
+            ),
+
+
+            dcc.Graph(id='scatter-plot',
+                    figure={
+                        'data': [{ 'x': df[df[included_columns[0]] == "sdg_index_score"]['sdg_index_score'],
+                                  'y': df[df[included_columns[0]] == "sdg_index_score"]['sdg_index_score'], 
+                                  'mode': 'markers', #mode de tracage par défaut pour créer un nuage de points
+                                  'name': 'Goal per Continent'},
+                                ],
+                        'layout': {
+                            'title': f'sdg_index_score per Continent',
+                            'xaxis': {'title': 'Year'},
+                            'yaxis': {'title': 'Score'},}
+            })
            
         ])
 
