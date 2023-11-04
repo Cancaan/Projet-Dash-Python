@@ -1,6 +1,7 @@
 from dash import dcc
 from dash import html
 import plotly.express as px
+import pandas as pd
 
 def sdg_map(df):
     fig = px.choropleth(df, locations="country_code",
@@ -34,6 +35,20 @@ def correlation_poverty_hunger(df):
     return fig
 
 
+    
+
+#définition en amont d'une liste comprenant les colonnes que l'on voudra avoir dans le menu déroulant du 4ème graphique
+included_columns = ['sdg_index_score','Zero_Hunger', 'Good_Health&Wellbeing', 'Quality_Education', 
+                    'Gender_Equality', 'Clean_Water&Sanitation', 'Affordable&Clean_Energy', 
+                    'Decent_Work&Economic_Growth', 'Industry_Innovation&Infrastructure', 
+                    'Reduced_Inequalities', 'Sustainable_Cities&Communities', 
+                    'Responsible_Consumption&Production', 'Climate_Action', 
+                    'Life_Below_Water', 'Life_on_Land', 'Peace_Justice&Strong_Institutions', 
+                    'Partnerships']
+
+
+
+
 def layout(df):
     return  html.Div([
         html.H1("Sustainable Development Dashboard"),
@@ -41,6 +56,7 @@ def layout(df):
             dcc.Graph(figure=sdg_map(df)),
             html.Hr()
         ]),
+
         html.Div([
             dcc.Dropdown(
                 id='susdev-dropdown',
@@ -51,20 +67,51 @@ def layout(df):
             ),
             dcc.Graph(id='bar-chart',
                     figure={
-                        'data': [{'x': df[df['country'] == "Afghanistan"]
-                                  ['year'], 'y': df[df['country'] == "Afghanistan"]
-                                  ['sdg_index_score'], 'type': 'bar', 'name': 'Index score'},
+                        'data': [{'x': df[df['country'] == "Afghanistan"]['year'], 
+                                  'y': df[df['country'] == "Afghanistan"]['sdg_index_score'], 
+                                  'type': 'bar', 
+                                  'name': 'Index score'},
                                 ],
                         'layout': {
                             'title': f'Index score of Afghanistan',
                             'xaxis': {'title': 'Year'},
                             'yaxis': {'title': 'Score'},}
             })
+
         ]),
+
+
         html.Div([
             dcc.Graph(figure=correlation_poverty_hunger(df)),
             html.Hr()
         ]),
+
+
+        html.Div([
+
+            dcc.Dropdown(
+                id='goal-dropdown',
+                #pour dire que dans mon menu déroulant, il y aura les éléments de la liste included_columns
+                options=[{'label': column, 'value': column} 
+                         for column in included_columns],
+                value=included_columns[0]
+            ),
+
+            dcc.Slider(
+                id = 'year-slider',
+                min = df['year'].min(),
+                max = df['year'].max(),
+                step = 1,  #incrément d'une année
+                value = df['year'].min(),  #année par défaut
+                marks = {str(year): str(year) 
+                         for year in range(df['year'].min(), df['year'].max() + 1)} 
+                         #pour que le slider affiche l'année en entier au lieu de 2k...
+            ),
+
+            dcc.Graph(id='facet-graph')
+
+        ])
+
     ])
 
 
