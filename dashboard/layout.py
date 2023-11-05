@@ -5,7 +5,7 @@ import plotly.express as px
 def sdg_map(df):
     fig = px.choropleth(df, locations="country_code",
                             color="sdg_index_score",
-                            hover_name="country",
+                            hover_name="country", #pour qu'il y ait le nom du pays d'écrit sur l'étiquette au passage de la souris
                             projection='natural earth',
                             animation_frame="year",
                             title='Sustainable Development Goal Score Per Country',
@@ -44,43 +44,50 @@ def correlation_poverty_hunger(df):
     
 
 #définition en amont d'une liste comprenant les colonnes que l'on voudra avoir dans le menu déroulant du 4ème graphique
-included_columns = ['sdg_index_score','No_Poverty', 'Zero_Hunger', 'Good_Health&Wellbeing', 'Quality_Education', 
-                    'Gender_Equality', 'Clean_Water&Sanitation', 'Affordable&Clean_Energy', 
-                    'Decent_Work&Economic_Growth', 'Industry_Innovation&Infrastructure', 
-                    'Reduced_Inequalities', 'Sustainable_Cities&Communities', 
-                    'Responsible_Consumption&Production', 'Climate_Action', 
-                    'Life_Below_Water', 'Life_on_Land', 'Peace_Justice&Strong_Institutions', 
-                    'Partnerships']
+included_columns = ['sdg_index_score','No_Poverty', 'Zero_Hunger', 
+                    'Good_Health&Wellbeing', 'Quality_Education', 
+                    'Gender_Equality', 'Clean_Water&Sanitation', 
+                    'Affordable&Clean_Energy', 'Decent_Work&Economic_Growth', 
+                    'Industry_Innovation&Infrastructure', 'Reduced_Inequalities', 
+                    'Sustainable_Cities&Communities', 'Responsible_Consumption&Production', 
+                    'Climate_Action', 'Life_Below_Water', 'Life_on_Land', 
+                    'Peace_Justice&Strong_Institutions', 'Partnerships']
 
 
 def layout(df):
     return  html.Div([
+
         html.H1("Sustainable Development Dashboard"),
+
+        #graphique 1
         html.Div([
             dcc.Graph(figure=sdg_map(df)),
             html.Hr()
         ]),
 
+        #graphique 2
         html.Div([
+            #menu déroulant pour sélectionner le pays à étudier
             dcc.Dropdown(
                 id='susdev-dropdown',
                 options=[
-                    {'label': country, 'value': country} for country in df['country'].unique()
+                    {'label': country, 'value': country} 
+                    for country in df['country'].unique()
                 ],
                 value=df['country'].iloc[0]
             ),
             dcc.Graph(id='bar-chart')
         ]),
 
-
+        #graphique 3
         html.Div([
             dcc.Graph(figure=correlation_poverty_hunger(df)),
             html.Hr()
         ]),
 
-
+        #graphique 4
         html.Div([
-
+            #menu déroulant avec critère à sélectionner
             dcc.Dropdown(
                 id='goal-dropdown',
                 #pour dire que dans mon menu déroulant, il y aura les éléments de la liste included_columns
@@ -88,7 +95,7 @@ def layout(df):
                          for column in included_columns],
                 value=included_columns[0]
             ),
-
+            #slider avec l'année à sélectionner
             dcc.Slider(
                 id = 'year-slider',
                 min = df['year'].min(),
@@ -99,7 +106,6 @@ def layout(df):
                          for year in range(df['year'].min(), df['year'].max() + 1)} 
                          #pour que le slider affiche l'année en entier au lieu de 2k...
             ),
-
             dcc.Graph(id='facet-graph')
 
         ])
