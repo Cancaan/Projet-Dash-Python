@@ -69,19 +69,7 @@ def layout(df):
                 ],
                 value=df['country'].iloc[0]
             ),
-            dcc.Graph(id='bar-chart',
-                    figure={
-                        'data': [{'x': df[df['country'] == "Afghanistan"]['year'], 
-                                  'y': df[df['country'] == "Afghanistan"]['sdg_index_score'], 
-                                  'type': 'bar', 
-                                  'name': 'Index score'},
-                                ],
-                        'layout': {
-                            'title': f'Index score of Afghanistan',
-                            'xaxis': {'title': 'Year'},
-                            'yaxis': {'title': 'Score'},}
-            })
-
+            dcc.Graph(id='bar-chart')
         ]),
 
 
