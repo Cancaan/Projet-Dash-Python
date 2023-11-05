@@ -37,6 +37,8 @@ Dans ce dernier graphique, nous allons pouvoir étudier l'ensemble des critères
 
 ## Analyses
 
+**Introduction**
+
 Maintenant que vous connaissez notre Dashbord comme votre poche, place aux principales conclusions extraites des données !
 Mais avant ça nous allons clarifier quelques points concernant notre base de donnée.
 En effet, notre base de données regroupe des observations concernant les Objectifs Développement Durable des pays du monde entre 2000 et 2022. Ceci met donc en lumière le progrès (ou non) de chacun des pays. Ces objectifs représentent plusieurs critères comme l'égalité des genres, l'action climatique, la lutte contre la famine, la qualité de l'éducation, la consommation responsable... Au cours de notre analyse, nous nous concentrerons particulièrement sur notre Score de l'Indice de Développement Durable (sdg_index_score) car cet indice rassemble les informartions de tous les autres objectifs, un peu comme une moyenne de ceux-ci ! De manière générale, plus un objectif a un score élevé, plus le pays en question est développé dans ce dernier.
@@ -61,5 +63,11 @@ Néanmoins, il y a tout de même des pays qui n'évoluent quasiment voir pas du 
 *Analyse des variations :* Toutes les évolutions ne sont pas toujours constantes, comme nous l'avons vu précédemment. Prenons l'exemple de l'Afghanistan : entre 2014 et 2018, le pays affiche un score en Objectif Développement Durable en nette augmentation par rapport au reste de la période. Cette augmentation peut s'expliquer par un changement majeur survenu dans le pays. En effectuant quelques recherches, nous découvrons qu'il y a eu de nouvelles élections présidentielles en 2014. Cet événement a donc contribué aux progrès réalisés dans divers domaines, ce qui est reflété dans cet histogramme. En revanche, nous observons également une baisse de l'indice en 2021, expliquée par le retour des talibans au pouvoir cette année-là.
 
 *Conclusion :* En résumé, le second graphique offre une vue détaillée de l'évolution des pays au fil du temps en terme de Score de Développement Durable. Comparé au premier graphique, il apporte une précision supplémentaire en permettant de déterminer si cette évolution s'est déroulée de manière constante ou non, mettant ainsi en évidence des liens avec des événements majeurs susceptibles d'avoir influencé la trajectoire d'un pays en matière d'Objectif de Développement Durable.
+
+**Graphique 3**
+
+*Vue statique :* Dans ce graphique, nous observons un nuage de points par continent comparant la pauvreté à la faim dans les pays. On peut séparer ces données en 2 où nous avons d'un côté l'Amérique, l'Océanie l'Asie et l'Europe où le problème est largement plus la famine que la pauvreté, notemment en Europe où la totalité des pays ont un indice de famine plus élevé que celui de pauvreté. En revanche, nous pouvons voir dans un second temps que l'Afrique est le seul continent où les pays ont un indice de pauvreté plus élevé que celui des pays du reste du monde.
+
+*Vue dynamique :*
 
 ## Developper Guide
