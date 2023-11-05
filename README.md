@@ -44,12 +44,22 @@ Désormais, nous pouvons analyser chacun des graphiques !
 
 **Graphique 1**
 
-*Vue statique :* D'un point de statique, nous remarquons que les pays les moins développés se situent dans l'hémisphère sud. Plus précisément, ils se trouvent en Afrique, en Amérique Centrale et en Asie du Sud. En revanche, nous remarquons que 2 pays se démarquent : la Suède et la Finlande qui ont une couleur bien plus claire que les autres pays (et donc un Objectif Développement Durable mieux comblé).
+*Vue statique :* D'un point de statique, nous remarquons que les pays les moins développés se situent dans l'hémisphère sud. Plus précisément, ils se trouvent en Afrique, en Amérique Centrale et en Asie du Sud. En revanche, nous remarquons que 2 pays se démarquent : la Suède et la Finlande qui ont une couleur bien plus claire que les autres pays (et donc un Objectif Développement Durable mieux accompli).
 
 *Vue dynamique :* D'un point de vue dynamique Nous remarquons que l'ensemble des pays évoluent de manière positive. Ceci montre donc que l'Objectif Développement Durable avance pas au pas au fin du temps et que nous sommes sur une bonne lancée.
 Avec une observation plus recherchée, nous remarquons qu'il y a des pays qui évoluent plus vite que les autres comme le Mali, la Mauritanie et l'Inde, bien que leurs indices restent encore plutôt bas.
 Néanmoins, il y a tout de même des pays qui n'évoluent quasiment voir pas du tout comme la Papouasie Nouvelle Guinée, le Soudan du sud et la République Centrafricaine. Nous pouvons également observer que l'Amérique du nord et de manière générale la partie du monde qui évolue le moins vite, bien que l'indice soit plutot élevé.
 
-Pour conclure, dans ce premier graphique, nous constatons que les pays de l'hémisphère nord possèdent un Objectif de Développement Durable bien plus accompli, mais qu'en termes d'évolution, l'hémisphère sud progresse plus rapidement.
+*Conclusion :* Dans ce premier graphique, nous constatons que les pays de l'hémisphère nord possèdent un Objectif de Développement Durable bien plus accompli, mais qu'en termes d'évolution, l'hémisphère sud progresse plus rapidement.
+
+**Graphique 2**
+
+*Intérêt :* Ce second graphique illustre le premier de façon plus précise à l'aide d'un histogramme. En effet, il nous permet de sélectionner un pays et d'observer son score en Objectif Développement Durable au fil du temps. Prenons l'exemple de la France : nous constatons que le score augmente de manière relativement constante au cours des années.
+
+*Lien avec le premier graphique :* En reprenant les exemples du premier graphique, nous pouvons constater que la Papouasie-Nouvelle-Guinée ne présente pratiquement aucune évolution au fil du temps. En revanche, nous remarquons que le Mali possède un histogramme en croissance, ce qui témoigne de l'amélioration du pays en matière d'Objectif Développement Durable.
+
+*Analyse des variations :* Toutes les évolutions ne sont pas toujours constantes, comme nous l'avons vu précédemment. Prenons l'exemple de l'Afghanistan : entre 2014 et 2018, le pays affiche un score en Objectif Développement Durable en nette augmentation par rapport au reste de la période. Cette augmentation peut s'expliquer par un changement majeur survenu dans le pays. En effectuant quelques recherches, nous découvrons qu'il y a eu de nouvelles élections présidentielles en 2014. Cet événement a donc contribué aux progrès réalisés dans divers domaines, ce qui est reflété dans cet histogramme. En revanche, nous observons également une baisse de l'indice en 2021, expliquée par le retour des talibans au pouvoir cette année-là.
+
+*Conclusion :* En résumé, le second graphique offre une vue détaillée de l'évolution des pays au fil du temps en terme de Score de Développement Durable. Comparé au premier graphique, il apporte une précision supplémentaire en permettant de déterminer si cette évolution s'est déroulée de manière constante ou non, mettant ainsi en évidence des liens avec des événements majeurs susceptibles d'avoir influencé la trajectoire d'un pays en matière d'Objectif de Développement Durable.
 
 ## Developper Guide
