@@ -43,7 +43,7 @@ def register_callbacks(app,df):
             data_frame=filtered_df,
             x='sdg_index_score',
             y=selected_goal,
-            hover_data='country', #pour qu'au passage de la souris, le pays auquel le point correspond soit indiqué
+            hover_name='country', #pour qu'il y ait le nom du pays d'écrit sur l'étiquette au passage de la souris
             facet_col='Continent', #facetting en fonction du continent
             title=f'Facetting for {selected_goal} in {selected_year}'
             #labels={selected_goal: selected_goal}
