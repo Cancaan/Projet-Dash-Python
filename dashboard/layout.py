@@ -6,6 +6,7 @@ def sdg_map(df):
     fig = px.choropleth(df, locations="country_code",
                             color="sdg_index_score",
                             hover_name="country", #pour qu'il y ait le nom du pays d'écrit sur l'étiquette au passage de la souris
+                            hover_data="Continent", #pour qu'il y ait le contiennt d'indiqué sur l'étiquette
                             projection='natural earth',
                             animation_frame="year",
                             title='Sustainable Development Goal Score Per Country',

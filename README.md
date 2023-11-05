@@ -37,4 +37,19 @@ Dans ce dernier graphique, nous allons pouvoir étudier l'ensemble des critères
 
 ## Analyses
 
+Maintenant que vous connaissez notre Dashbord comme votre poche, place aux principales conclusions extraites des données !
+Mais avant ça nous allons clarifier quelques points concernant notre base de donnée.
+En effet, notre base de données regroupe des observations concernant les Objectifs Développement Durable des pays du monde entre 2000 et 2022. Ceci met donc en lumière le progrès (ou non) de chacun des pays. Ces objectifs représentent plusieurs critères comme l'égalité des genres, l'action climatique, la lutte contre la famine, la qualité de l'éducation, la consommation responsable... Au cours de notre analyse, nous nous concentrerons particulièrement sur notre Score de l'Indice de Développement Durable (sdg_index_score) car cet indice rassemble les informartions de tous les autres objectifs, un peu comme une moyenne de ceux-ci ! De manière générale, plus un objectif a un score élevé, plus le pays en question est développé dans ce dernier.
+Désormais, nous pouvons analyser chacun des graphiques !
+
+**Graphique 1**
+
+*Vue statique :* D'un point de statique, nous remarquons que les pays les moins développés se situent dans l'hémisphère sud. Plus précisément, ils se trouvent en Afrique, en Amérique Centrale et en Asie du Sud. En revanche, nous remarquons que 2 pays se démarquent : la Suède et la Finlande qui ont une couleur bien plus claire que les autres pays (et donc un Objectif Développement Durable mieux comblé).
+
+*Vue dynamique :* D'un point de vue dynamique Nous remarquons que l'ensemble des pays évoluent de manière positive. Ceci montre donc que l'Objectif Développement Durable avance pas au pas au fin du temps et que nous sommes sur une bonne lancée.
+Avec une observation plus recherchée, nous remarquons qu'il y a des pays qui évoluent plus vite que les autres comme le Mali, la Mauritanie et l'Inde, bien que leurs indices restent encore plutôt bas.
+Néanmoins, il y a tout de même des pays qui n'évoluent quasiment voir pas du tout comme la Papouasie Nouvelle Guinée, le Soudan du sud et la République Centrafricaine. Nous pouvons également observer que l'Amérique du nord et de manière générale la partie du monde qui évolue le moins vite, bien que l'indice soit plutot élevé.
+
+Pour conclure, dans ce premier graphique, nous constatons que les pays de l'hémisphère nord possèdent un Objectif de Développement Durable bien plus accompli, mais qu'en termes d'évolution, l'hémisphère sud progresse plus rapidement.
+
 ## Developper Guide
