@@ -14,28 +14,37 @@ def sdg_map(df):
     fig.update_layout(width=1280, height=720, title_x=0.5)
     return fig
 
+#fonction servant à créer le facetting qui compare la faim et la pauvreté
 def correlation_poverty_hunger(df):
-    selected_columns = ['country', 'year', 'No_Poverty', 'Zero_Hunger']
-    data_subset = df[selected_columns]
+    #colonnes qui vont nous servir pour l'étude
+    selected_columns = ['country', 'year', 'No_Poverty', 'Zero_Hunger', 'Continent']
+    #création d'un sous ensemble de données en filtrant les observations
     #ajout d'une condition pour ne pas prendre en compte les données erronées
-    data_subset = df[(df['No_Poverty'] != 0)][selected_columns]
+    data_subset = df[~((df['No_Poverty'] == 0) | 
+                       (df['No_Poverty'] == 100) | 
+                       (df['Zero_Hunger'] == 0) | 
+                       (df['Zero_Hunger'] == 100))][selected_columns]
     #ajout d'une colonne temporaire pour la comparaison
+    #comparaison pour savoir qui est plus élevé entre Zero_Hunger et No_Poverty
     data_subset['Comparison'] = data_subset.apply(lambda row: 'More Poverty than Hunger' 
                                                   if row['Zero_Hunger'] > row['No_Poverty'] 
                                                   else 'More Hunger than Poverty', 
                                                   axis=1)
     fig = px.scatter(data_subset, 
                      x='No_Poverty', y='Zero_Hunger', 
-                     text='country', 
+                     text='country',
                      title='Relation Beetween Poverty and Hunger',
+                     facet_col='Continent',
                      color='Comparison', #couleur en fonction du résultat de la comparaison
                      animation_frame='year')
-    fig.update_layout(width=1280, height=720, title_x=0.5)
+    #réduction de la taille des annotations pour + de visibilité
+    fig.update_traces(textfont=dict(size=8))
+    fig.update_layout(width=1500, height=720, title_x=0.5)
     return fig
     
 
 #définition en amont d'une liste comprenant les colonnes que l'on voudra avoir dans le menu déroulant du 4ème graphique
-included_columns = ['sdg_index_score','Zero_Hunger', 'Good_Health&Wellbeing', 'Quality_Education', 
+included_columns = ['sdg_index_score','No_Poverty', 'Zero_Hunger', 'Good_Health&Wellbeing', 'Quality_Education', 
                     'Gender_Equality', 'Clean_Water&Sanitation', 'Affordable&Clean_Energy', 
                     'Decent_Work&Economic_Growth', 'Industry_Innovation&Infrastructure', 
                     'Reduced_Inequalities', 'Sustainable_Cities&Communities', 
