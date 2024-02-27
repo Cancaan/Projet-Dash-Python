@@ -9,14 +9,3 @@ if __name__ == "__main__":
     app = app(df)
 
     app.run_server(debug=True)
-
-    #test
-    #test2
-    #test gitlab
-    #vrai test
-
-
-
-    #modifications de la nvl branche 
-    # modif numero 2
-
